@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.SignalR;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 namespace Ragged.Hubs
@@ -18,6 +19,12 @@ namespace Ragged.Hubs
 			UserHandler.ConnectedIds.Add(Context.ConnectionId);
 			await Clients.All.SendAsync("ReceiveMessage", Context.ConnectionId, "connected");
 			await base.OnConnectedAsync();
+		}
+		public override async Task OnDisconnectedAsync(Exception exception)
+		{
+			UserHandler.ConnectedIds.Remove(Context.ConnectionId);
+			await Clients.All.SendAsync("ReceiveMessage", Context.ConnectionId, "disconnected");
+			await base.OnDisconnectedAsync(exception);
 		}
 	}
 }

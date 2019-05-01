@@ -1,5 +1,8 @@
 @page
 @model ChatModel
+@{
+	ViewData["Title"] = "Chat";
+}
 <link href="~/css/site.css" rel="stylesheet" type="text/css" />
 👤User: <input type="text" id="userInput" value='@ViewData["Name"]' />
 💬Message: <input type="text" id="messageInput" value="Hello World!?"/>

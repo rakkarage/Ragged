@@ -1,0 +1,16 @@
+@page
+@model ChatModel
+@{
+    ViewData["Title"] = "ChatTest";
+}
+<link href="~/css/site.css" rel="stylesheet" type="text/css" />
+<div>
+	<hr />
+	👤User: <input type="text" id="userInput" value='@ViewData["Name"]' />
+	💬Message: <input type="text" id="messageInput" value="Hello World!?"/>
+	<input type="button" id="sendButton" value="👍 Send Message" />
+	<hr />
+	<ul id="messagesList"></ul>
+</div>
+<script src="~/lib/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>

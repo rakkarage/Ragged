@@ -3,8 +3,8 @@
 var connection = new signalR.HubConnectionBuilder().withUrl("/editHub").build();
 
 connection.on("ReceiveMessage", function (message) {
-	var message = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-	document.getElementById("edit").value = message;
+	var value = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	document.getElementById("edit").value = value;
 });
 
 connection.start().catch(function (err) {
@@ -12,8 +12,8 @@ connection.start().catch(function (err) {
 });
 
 document.getElementById("edit").addEventListener("onchange", function (event) {
-	var message = document.getElementById("edit").value;
-	connection.invoke("SendMessage", message).catch(function (err) {
+	var value = document.getElementById("edit").value;
+	connection.invoke("SendMessage", value).catch(function (err) {
 		return console.error(err.toString());
 	});
 	event.preventDefault();

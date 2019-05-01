@@ -41,6 +41,7 @@ namespace Ragged
 			app.UseSignalR(routes =>
 			{
 				routes.MapHub<ChatHub>("/chatHub");
+				routes.MapHub<EditHub>("/editHub");
 			});
 			app.UseMvc();
 		}

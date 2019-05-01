@@ -1,0 +1,16 @@
+[Unit]
+Description=Ragged
+
+[Service]
+WorkingDirectory=/var/www/html/Ragged
+ExecStart=/usr/bin/dotnet /var/www/html/Ragged/Ragged.dll
+Restart=always
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=ragged
+User=www-data
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+
+[Install]
+WantedBy=multi-user.target

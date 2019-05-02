@@ -6,3 +6,4 @@ ASP.NET Core SignalR chat &amp; random name generator
 
 - show connections
 - scroll chat
+- combine chat & topic & users

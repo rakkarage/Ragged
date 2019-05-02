@@ -30,7 +30,7 @@ connection.start().then(function () {
 	return console.error(err.toString());
 });
 
-document.getElementById("topic").addEventListener("change", () => {
+document.getElementById("topic").addEventListener("input", () => {
 	var value = document.getElementById("topic").value;
 	connection.invoke("EditTopic", value).catch(err => console.error(err));
 	event.preventDefault();

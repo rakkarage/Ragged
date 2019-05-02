@@ -11,7 +11,13 @@ connection.on("ReceiveMessage", function (user, message) {
 	var li = document.createElement("li");
 	li.textContent = encodedMsg;
 	document.getElementById("messagesList").appendChild(li);
+	updateScroll();
 });
+
+function updateScroll() {
+	var element = document.getElementById("container");
+	element.scrollTop = element.scrollHeight;
+}
 
 connection.start().then(function () {
 	document.getElementById("sendButton").disabled = false;

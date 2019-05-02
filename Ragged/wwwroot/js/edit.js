@@ -19,24 +19,18 @@ connection.start().catch(function (err) {
 	return console.error(err.toString());
 });
 
-document.getElementById("edit1").addEventListener("change", function () {
+document.getElementById("edit1").addEventListener("change", () => {
 	var value = document.getElementById("edit1").value;
-	connection.invoke("EditMessage1", value).catch(function (err) {
-		return console.error(err.toString());
-	});
+	connection.invoke("EditMessage1", value).catch(err => console.error(err));
 	event.preventDefault();
 });
-document.getElementById("edit2").addEventListener("onkeyup", function () {
+document.getElementById("edit2").addEventListener("onkeyup", () => {
 	var value = document.getElementById("edit2").value;
-	connection.invoke("EditMessage2", value).catch(function (err) {
-		return console.error(err.toString());
-	});
+	connection.invoke("EditMessage2", value).catch(err => console.error(err));
 	event.preventDefault();
 });
-document.getElementById("edit3").addEventListener("input", function () {
+document.getElementById("edit3").addEventListener("input", () => {
 	var value = document.getElementById("edit3").value;
-	connection.invoke("EditMessage3", value).catch(function (err) {
-		return console.error(err.toString());
-	});
+	connection.invoke("EditMessage3", value).catch(err => console.error(err));
 	event.preventDefault();
 });

@@ -14,6 +14,10 @@ namespace Ragged.Hubs
 		{
 			await Clients.All.SendAsync("ReceiveMessage", user, message);
 		}
+		public async Task EditTopic(string message)
+		{
+			await Clients.All.SendAsync("EditedTopic", message);
+		}
 		public override async Task OnConnectedAsync()
 		{
 			UserHandler.ConnectedIds.Add(Context.ConnectionId);

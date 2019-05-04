@@ -1,6 +1,6 @@
 # Ragged
 
-ASP.NET Core SignalR chat &amp; random name generator
+ASP.NET Core SignalR chat and random name generator
 
 ## Todo
 

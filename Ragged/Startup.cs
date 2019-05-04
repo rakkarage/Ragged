@@ -27,21 +27,13 @@ namespace Ragged
 		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 		{
 			if (env.IsDevelopment())
-			{
 				app.UseDeveloperExceptionPage();
-			}
 			else
-			{
-				app.UseExceptionHandler("/Error");
 				app.UseHsts();
-			}
 			app.UseHttpsRedirection();
 			app.UseStaticFiles();
 			app.UseCookiePolicy();
-			app.UseSignalR(routes =>
-			{
-				routes.MapHub<ChatHub>("/chatHub");
-			});
+			app.UseSignalR(routes => routes.MapHub<ChatHub>("/"));
 			app.UseMvc();
 		}
 	}

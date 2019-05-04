@@ -6,19 +6,18 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Ragged</title>
+	<title>Ragged Test</title>
 	<link href="~/css/site.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
 	<header>
-		<h1>Header</h1>
+		<h1>Ragged Test</h1>
 	</header>
 	<main>
 		<form id="subHeader">
-			📖<input type="text" id="topicInput" placeholder="Topic" value='Blah Blah Blah' /><br>
-			👤<input type="text" id="nameInput" placeholder="Name" value='@ViewData["Name"]' /><br>
-			👥<input type="text" id="groupInput" placeholder="Group" /><br>
+			👥<input type="text" id="groupInput" tooltip="Group" placeholder="Group" /><br>
+			📖<input type="text" id="topicInput" tooltip="Topic" placeholder="Topic" value='Blah Blah Blah' /><br>
 		</form>
 		<div id="subMain">
 			<div id="scroll">
@@ -33,12 +32,13 @@
 			</div>
 		</div>
 		<form id="subFooter">
-			💬<input type="text" id="messageInput" placeholder="Message" value="Hello World!?"/>
-			<input type="button" id="sendButton" type="submit" value="👍" />
+			👤<input type="text" id="nameInput" tooltip="Name" placeholder="Name" value='@ViewData["Name"]' /><br>
+			💬<input type="text" id="messageInput" tooltip="Message" placeholder="Message" value="Hello World!?"/>
+			<input type="button" id="SubmitButton" tooltip="Submit" type="submit" value="👍" />
 		</form>
 	</main>
 	<footer>
-		<h2>Footer</h2>
+		<h2>Ragged Test&copy; 2019</h2>
 	</footer>
 	<script src="~/lib/signalr/dist/browser/signalr.js"></script>
 	<script src="~/js/site.js"></script>

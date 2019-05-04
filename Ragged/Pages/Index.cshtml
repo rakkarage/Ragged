@@ -1,11 +1,26 @@
 ﻿@page
 @model IndexModel
-@{
-	ViewData["Title"] = "Home page";
-}
+<link href="~/css/chat.css" rel="stylesheet" type="text/css" />
 <hr />
-<div class="text-center">
-	<h1 class="display-4">Welcome</h1>
-	<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div id="top">
+	<div>
+		📖<input type="text" id="topic" value='Blah Blah Blah' /><br>
+		👤<input type="text" id="userInput" value='@ViewData["Name"]' /><br>
+		💬<input type="text" id="messageInput" value="Hello World!?"/>
+		<input type="button" id="sendButton" value="👍" />
+	</div>
+	<div>
+		<ul id="usersList">
+			<li>test</li>
+			<li>test</li>
+			<li>test</li>
+		</ul>
+	</div>
 </div>
 <hr />
+<div id="container">
+	<ul id="messagesList"></ul>
+</div>
+<hr />
+<script src="~/lib/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>

@@ -9,6 +9,9 @@ html, body {
 	margin: 0;
 	height: 100%;
 }
+header, footer {
+	padding-left: var(--padding);
+}
 
 body {
 	display: flex;

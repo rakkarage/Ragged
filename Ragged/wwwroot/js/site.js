@@ -1,11 +1,11 @@
 ﻿"use strict";
 
-var connection = new signalR.HubConnectionBuilder().withUrl("/").build();
+var connection = new signalR.HubConnectionBuilder().withUrl("Index.html").build();
 
 document.getElementById("sendButton").disabled = true;
 
 connection.on("EditedTopic", (message) => {
-	document.getElementById("topic").value = filter(message);
+	document.getElementById("topicInput").value = filter(message);
 });
 
 connection.on("ReceiveMessage", (user, message) => {
@@ -30,14 +30,14 @@ connection.start().then(() => {
 	return console.error(err.toString());
 });
 
-document.getElementById("topic").addEventListener("input", () => {
-	var value = document.getElementById("topic").value;
+document.getElementById("topicInout").addEventListener("input", () => {
+	var value = document.getElementById("topicInput").value;
 	connection.invoke("EditTopic", value).catch(err => console.error(err));
 	event.preventDefault();
 });
 
 document.getElementById("sendButton").addEventListener("click", (event) => {
-	var user = document.getElementById("userInput").value;
+	var user = document.getElementById("nameInput").value;
 	var message = document.getElementById("messageInput").value;
 	connection.invoke("SendMessage", user, message).catch((err) => {
 		return console.error(err.toString());

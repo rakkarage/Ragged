@@ -15,14 +15,11 @@
 		<h1>Header</h1>
 	</header>
 	<main>
-		<div id="subHeader">
-			<div>
-				📖<input type="text" id="topic" value='Blah Blah Blah' /><br>
-				👤<input type="text" id="userInput" value='@ViewData["Name"]' /><br>
-				💬<input type="text" id="messageInput" value="Hello World!?"/>
-				<input type="button" id="sendButton" value="👍" />
-			</div>
-		</div>
+		<form id="subHeader">
+			📖<input type="text" id="topicInput" placeholder="Topic" value='Blah Blah Blah' /><br>
+			👤<input type="text" id="nameInput" placeholder="Name" value='@ViewData["Name"]' /><br>
+			👥<input type="text" id="groupInput" placeholder="Group" /><br>
+		</form>
 		<div id="subMain">
 			<div id="scroll">
 				<ul id="messagesList"></ul>
@@ -35,9 +32,10 @@
 				</ul>
 			</div>
 		</div>
-		<div id="subFooter">
-			<h2>SubFooter</h2>
-		</div>
+		<form id="subFooter">
+			💬<input type="text" id="messageInput" placeholder="Message" value="Hello World!?"/>
+			<input type="button" id="sendButton" type="submit" value="👍" />
+		</form>
 	</main>
 	<footer>
 		<h2>Footer</h2>

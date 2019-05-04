@@ -1,4 +1,8 @@
-﻿html, body {
+﻿:root {
+	--padding: 10px;
+}
+
+html, body {
 	margin: 0;
 	height: 100%;
 }
@@ -8,11 +12,15 @@ body {
 	flex-direction: column;
 }
 
+input {
+	flex: auto;
+}
+
 #subHeader {
+	padding: var(--padding);
 	background-color: red;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
 }
 
 main {
@@ -31,7 +39,10 @@ main {
 }
 
 #subFooter {
+	padding: var(--padding);
 	background-color: blue;
+	display: flex;
+	align-items: center;
 }
 
 #messagesList {

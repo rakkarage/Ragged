@@ -21,13 +21,13 @@ namespace Ragged.Hubs
 		public override async Task OnConnectedAsync()
 		{
 			UserHandler.ConnectedIds.Add(Context.ConnectionId);
-			await Clients.All.SendAsync("ReceiveMessage", Context.ConnectionId, "connected");
+			await Clients.All.SendAsync("ConnectMessage", Context.ConnectionId.ToString());
 			await base.OnConnectedAsync();
 		}
 		public override async Task OnDisconnectedAsync(Exception exception)
 		{
 			UserHandler.ConnectedIds.Remove(Context.ConnectionId);
-			await Clients.All.SendAsync("ReceiveMessage", Context.ConnectionId, "disconnected");
+			await Clients.All.SendAsync("DisconnectMessage", Context.ConnectionId.ToString());
 			await base.OnDisconnectedAsync(exception);
 		}
 		// public async Task AddToGroup(string groupName)

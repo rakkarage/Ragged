@@ -1,5 +1,8 @@
 ﻿:root {
 	--padding: 10px;
+	--color1: slategray;
+	--color2: lightgray;
+	--color3: gray;
 }
 
 html, body {
@@ -12,13 +15,17 @@ body {
 	flex-direction: column;
 }
 
-input {
+input[type="text"] {
 	flex: auto;
+}
+
+header, footer {
+	background-color: var(--color1);
 }
 
 #subHeader {
 	padding: var(--padding);
-	background-color: red;
+	background-color: var(--color2);
 	display: flex;
 	align-items: center;
 }
@@ -31,7 +38,7 @@ main {
 }
 
 #subMain {
-	background-color: green;
+	background-color: var(--color3);
 	display: flex;
 	flex-direction: row;
 	flex: content;
@@ -40,7 +47,7 @@ main {
 
 #subFooter {
 	padding: var(--padding);
-	background-color: blue;
+	background-color: var(--color2);
 	display: flex;
 	align-items: center;
 }

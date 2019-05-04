@@ -2,7 +2,7 @@
 
 var connection = new signalR.HubConnectionBuilder().withUrl("Index.html").build();
 
-document.getElementById("submitButton").disabled = true;
+document.getElementById("SendButton").disabled = true;
 
 connection.on("EditedTopic", (message) => {
 	document.getElementById("topicInput").value = filter(message);
@@ -25,7 +25,7 @@ function updateScroll() {
 }
 
 connection.start().then(() => {
-	document.getElementById("submitButton").disabled = false;
+	document.getElementById("SendButton").disabled = false;
 }).catch(function (err) {
 	return console.error(err.toString());
 });
@@ -36,7 +36,7 @@ document.getElementById("topicInput").addEventListener("input", () => {
 	event.preventDefault();
 });
 
-document.getElementById("submitButton").addEventListener("click", (event) => {
+document.getElementById("SendButton").addEventListener("click", (event) => {
 	var user = document.getElementById("nameInput").value;
 	var message = document.getElementById("messageInput").value;
 	connection.invoke("SendMessage", user, message).catch((err) => {

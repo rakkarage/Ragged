@@ -60,4 +60,6 @@ main {
 #usersList {
 	overflow-y: scroll;
 	flex: auto;
+	max-width: 10%;
+	background-color: darkgray;
 }

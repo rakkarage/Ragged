@@ -8,5 +8,6 @@ namespace Ragged.Pages
 		private Gename _gename = new Gename();
 		[ViewData]
 		public string Name => _gename.Name();
+		public void OnGet()	{}
 	}
 }

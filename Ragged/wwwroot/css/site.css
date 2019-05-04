@@ -15,6 +15,12 @@ body {
 	flex-direction: column;
 }
 
+span {
+	display: flex;
+	flex: auto;
+	align-items: center;
+}
+
 input[type="text"] {
 	flex: auto;
 }
@@ -60,6 +66,7 @@ main {
 #usersList {
 	overflow-y: scroll;
 	flex: auto;
-	max-width: 10%;
+	min-width: 10%;
+	max-width: 33%;
 	background-color: darkgray;
 }

@@ -2,29 +2,29 @@
 
 var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
 
-//Disable send button until connection is established
 document.getElementById("sendButton").disabled = true;
 
-connection.on("EditedTopic", function (message) {
-	var value = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-	document.getElementById("topic").value = value;
+connection.on("EditedTopic", (message) => {
+	document.getElementById("topic").value = filter(message);
 });
 
-connection.on("ReceiveMessage", function (user, message) {
-	var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-	var encodedMsg = user + " says " + msg;
+connection.on("ReceiveMessage", (user, message) => {
 	var li = document.createElement("li");
-	li.textContent = encodedMsg;
+	li.textContent = user + " says " + filter(message);
 	document.getElementById("messagesList").appendChild(li);
 	updateScroll();
 });
+
+function filter(message) {
+	return message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
 
 function updateScroll() {
 	var element = document.getElementById("container");
 	element.scrollTop = element.scrollHeight;
 }
 
-connection.start().then(function () {
+connection.start().then(() => {
 	document.getElementById("sendButton").disabled = false;
 }).catch(function (err) {
 	return console.error(err.toString());
@@ -36,10 +36,10 @@ document.getElementById("topic").addEventListener("input", () => {
 	event.preventDefault();
 });
 
-document.getElementById("sendButton").addEventListener("click", function (event) {
+document.getElementById("sendButton").addEventListener("click", (event) => {
 	var user = document.getElementById("userInput").value;
 	var message = document.getElementById("messageInput").value;
-	connection.invoke("SendMessage", user, message).catch(function (err) {
+	connection.invoke("SendMessage", user, message).catch((err) => {
 		return console.error(err.toString());
 	});
 	event.preventDefault();

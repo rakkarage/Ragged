@@ -1,7 +1,45 @@
-#container {
-	max-height: 70vh;
-	overflow-y: scroll;
+html, body {
+	margin: 0;
+	height: 100%;
 }
-#topic {
-	width: 50vw;
+
+body {
+	display: flex;
+	flex-direction: column;
+}
+
+#subHeader {
+	background-color: red;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	overflow-y: hidden;
+	flex: content;
+}
+
+#subMain {
+	background-color: green;
+	display: flex;
+	flex-direction: row;
+	flex: content;
+	overflow-y: hidden;
+}
+
+#subFooter {
+	background-color: blue;
+}
+
+#scroll {
+	overflow-y: scroll;
+	flex: auto;
+}
+
+#side {
+	overflow-y: scroll;
+	flex: auto;
 }

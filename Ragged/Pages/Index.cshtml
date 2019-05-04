@@ -1,26 +1,49 @@
 ﻿@page
 @model IndexModel
-<link href="~/css/site.css" rel="stylesheet" type="text/css" />
-<hr />
-<div id="top">
-	<div>
-		📖<input type="text" id="topic" value='Blah Blah Blah' /><br>
-		👤<input type="text" id="userInput" value='@ViewData["Name"]' /><br>
-		💬<input type="text" id="messageInput" value="Hello World!?"/>
-		<input type="button" id="sendButton" value="👍" />
-	</div>
-	<div>
-		<ul id="usersList">
-			<li>test</li>
-			<li>test</li>
-			<li>test</li>
-		</ul>
-	</div>
-</div>
-<hr />
-<div id="container">
-	<ul id="messagesList"></ul>
-</div>
-<hr />
-<script src="~/lib/signalr/dist/browser/signalr.js"></script>
-<script src="~/js/site.js"></script>
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ragged</title>
+	<link href="~/css/site.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<header>
+		<h1>Header</h1>
+	</header>
+	<main>
+		<div id="subHeader">
+			<div>
+				📖<input type="text" id="topic" value='Blah Blah Blah' /><br>
+				👤<input type="text" id="userInput" value='@ViewData["Name"]' /><br>
+				💬<input type="text" id="messageInput" value="Hello World!?"/>
+				<input type="button" id="sendButton" value="👍" />
+			</div>
+		</div>
+		<div id="subMain">
+			<div id="scroll">
+				<ul id="messagesList"></ul>
+			</div>
+			<div id="side">
+				<ul id="usersList">
+					<li>test</li>
+					<li>test</li>
+					<li>test</li>
+				</ul>
+			</div>
+		</div>
+		<div id="subFooter">
+			<h2>SubFooter</h2>
+		</div>
+	</main>
+	<footer>
+		<h2>Footer</h2>
+	</footer>
+	<script src="~/lib/signalr/dist/browser/signalr.js"></script>
+	<script src="~/js/site.js"></script>
+</body>
+
+</html>

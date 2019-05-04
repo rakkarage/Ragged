@@ -34,12 +34,12 @@ main {
 	background-color: blue;
 }
 
-#scroll {
+#messagesList {
 	overflow-y: scroll;
 	flex: auto;
 }
 
-#side {
+#usersList {
 	overflow-y: scroll;
 	flex: auto;
 }

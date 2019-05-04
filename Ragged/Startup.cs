@@ -33,7 +33,7 @@ namespace Ragged
 			app.UseHttpsRedirection();
 			app.UseStaticFiles();
 			app.UseCookiePolicy();
-			app.UseSignalR(routes => routes.MapHub<ChatHub>("/"));
+			app.UseSignalR(routes => routes.MapHub<ChatHub>("/Index.html"));
 			app.UseMvc();
 		}
 	}

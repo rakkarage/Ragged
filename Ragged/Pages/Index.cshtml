@@ -16,19 +16,19 @@
 	</header>
 	<main>
 		<form id="subHeader">
-			<span title="Group">👥&nbsp;<input id="groupInput" placeholder="Group" value='Default'></span>&nbsp;
-			<input type="button" id="JoinButton" title="Join" type="submit" value="👍">&nbsp;
-			<span title="Topic">📖&nbsp;<input id="topicInput" placeholder="Topic" value='Blah Blah Blah'></span>&nbsp;
-			<span title="Status">⚠️&nbsp;<input readonly id="statusOutput" placeholder="Status"></span>
+			<span title="Group">👥&nbsp;<input id="groupInput" name="Group" placeholder="Group" value='Default'></span>&nbsp;
+			<input id="JoinButton" title="Join" type="submit" value="👍">&nbsp;
+			<span title="Topic">📖&nbsp;<input id="topicInput" name="Topic" placeholder="Topic" value='Blah Blah Blah'></span>&nbsp;
+			<span title="Status">⚠️&nbsp;<input id="statusOutput" name="Status" placeholder="Status" readonly></span>
 		</form>
 		<div id="subMain">
 			<ul id="messagesList" title="Messages"></ul>
 			<ul id="usersList" title="Users"></ul>
 		</div>
 		<form id="subFooter">
-			<span title="Name">👤&nbsp;<input id="nameInput" placeholder="Name" value='@Model.Name'></span>&nbsp;
-			<span title="Message">💬&nbsp;<input id="messageInput" placeholder="Message" value="Hello World!?"></span>&nbsp;
-			<input type="button" id="SendButton" title="Send" type="submit" value="👍">
+			<span title="Name">👤&nbsp;<input id="nameInput" name="Name" placeholder="Name" value='@Model.Name'></span>&nbsp;
+			<span title="Message">💬&nbsp;<input id="messageInput" name="Message" placeholder="Message" value="Hello World!?"></span>&nbsp;
+			<input id="SendButton" title="Send" type="submit" value="👍">
 		</form>
 	</main>
 	<footer>

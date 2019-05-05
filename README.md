@@ -10,3 +10,4 @@ ASP.NET Core SignalR chat and random name generator
   - <https://pusher.com/tutorials/chat-aspnet>
 - group by topic - add group field
 - use bens ui art for this
+- use datalist auto complete for topic

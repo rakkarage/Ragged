@@ -24,7 +24,7 @@ span {
 	align-items: center;
 }
 
-input[type="text"] {
+input {
 	flex: auto;
 }
 

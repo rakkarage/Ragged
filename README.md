@@ -15,6 +15,7 @@ ASP.NET Core SignalR chat and random name generator
   - <https://www.learnrazorpages.com/razor-pages/forms/select-lists>
   - <https://www.learnrazorpages.com/razor-pages/model-binding>
   - <https://www.learnrazorpages.com/razor-pages/handler-methods>
+  - <https://www.tutorialspoint.com/asp.net_core/asp.net_core_razor_layout_views.htm>
 - group by topic - add group field
 - use bens ui art for this
 - use datalist auto complete for topic

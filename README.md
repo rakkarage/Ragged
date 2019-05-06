@@ -23,3 +23,4 @@ ASP.NET Core SignalR chat and random name generator
   - <https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2>
 - ef!?
 - hosting on docker means u can host & debug at same time
+  - DOCKER - BITBUCKET - GIT SUB PROJECT

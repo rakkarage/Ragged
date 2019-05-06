@@ -15,16 +15,21 @@ connection.on("ReceiveMessage", (user, message) => {
 	updateMessages();
 });
 
-connection.on("ConnectMessage", (user) => {
-	var li = document.createElement("li");
-	li.textContent = user;
-	document.getElementById("usersList").appendChild(li);
+connection.on("ConnectMessage", (user, users) => updateUsers);
+
+connection.on("DisconnectMessage", (user, users) => updateUsers);
+
+function updateUsers(users) {
+	var parent = document.getElementById("usersList");
+	while (parent.firstChild)
+		parent.removeChild(parent.firstChild);
+	users.forEach(id => {
+		var li = document.createElement("li");
+		li.textContent = id;
+		parent.appendChild(li);
+	});
 	updateUsers();
-});
-
-connection.on("DisconnectMessage", (user) => {
-
-});
+}
 
 function filter(message) {
 	return message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");

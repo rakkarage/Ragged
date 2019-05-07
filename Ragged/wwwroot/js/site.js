@@ -15,9 +15,9 @@ connection.on("ReceiveMessage", (user, message) => {
 	scrollMessages();
 });
 
-connection.on("ConnectMessage", (user, users) => { updateUsers(users); });
+connection.on("ConnectMessage", (user, users) => updateUsers(users));
 
-connection.on("DisconnectMessage", (user, users) => { updateUsers(users); });
+connection.on("DisconnectMessage", (user, users) => updateUsers(users));
 
 function updateUsers(users) {
 	var parent = document.getElementById("usersList");

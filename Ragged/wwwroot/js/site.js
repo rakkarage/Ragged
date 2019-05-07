@@ -12,12 +12,12 @@ connection.on("ReceiveMessage", (user, message) => {
 	var li = document.createElement("li");
 	li.textContent = user + " says " + filter(message);
 	document.getElementById("messagesList").appendChild(li);
-	updateMessages();
+	scrollMessages();
 });
 
-connection.on("ConnectMessage", (user, users) => updateUsers);
+connection.on("ConnectMessage", (user, users) => { updateUsers(users); });
 
-connection.on("DisconnectMessage", (user, users) => updateUsers);
+connection.on("DisconnectMessage", (user, users) => { updateUsers(users); });
 
 function updateUsers(users) {
 	var parent = document.getElementById("usersList");
@@ -28,19 +28,19 @@ function updateUsers(users) {
 		li.textContent = id;
 		parent.appendChild(li);
 	});
-	updateUsers();
+	scrollUsers();
 }
 
 function filter(message) {
 	return message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
-function updateMessages() {
+function scrollMessages() {
 	var element = document.getElementById("messagesList");
 	element.scrollTop = element.scrollHeight;
 }
 
-function updateUsers() {
+function scrollUsers() {
 	var element = document.getElementById("usersList");
 	element.scrollTop = element.scrollHeight;
 }

@@ -33,7 +33,7 @@ function updateUsers(users) {
 		parent.removeChild(parent.firstChild);
 	for (var id in users) {
 		var li = document.createElement("li");
-		li.textContent = id;
+		li.textContent = users.hasOwnProperty(id) ? users[id] : id;
 		parent.appendChild(li);
 	}
 	scrollUsers();

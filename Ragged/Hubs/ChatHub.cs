@@ -1,3 +1,4 @@
+using ca.HenrySoftware;
 using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
@@ -6,10 +7,11 @@ namespace Ragged.Hubs
 {
 	public static class UserHandler
 	{
-		public static HashSet<string> ConnectedIds = new HashSet<string>();
+		public static Dictionary<string, string> ConnectedIds = new Dictionary<string, string>();
 	}
 	public class ChatHub : Hub
 	{
+		private Gename _gename = new Gename();
 		public async Task SendMessage(string user, string message)
 		{
 			await Clients.All.SendAsync("ReceiveMessage", user, message);
@@ -20,15 +22,19 @@ namespace Ragged.Hubs
 		}
 		public override async Task OnConnectedAsync()
 		{
-			UserHandler.ConnectedIds.Add(Context.ConnectionId);
-			await Clients.Caller.SendAsync("ReceiveMessage", "Ragged", "Welcome");
-			await Clients.All.SendAsync("ConnectMessage", Context.ConnectionId, UserHandler.ConnectedIds);
+			var name = _gename.Name();
+			UserHandler.ConnectedIds.Add(Context.ConnectionId, name);
+			await Clients.Caller.SendAsync("SetName", name);
+			await Clients.All.SendAsync("ReceiveMessage", "System", $"Welcome {name}!");
+			await Clients.All.SendAsync("ConnectMessage", UserHandler.ConnectedIds);
 			await base.OnConnectedAsync();
 		}
 		public override async Task OnDisconnectedAsync(Exception exception)
 		{
+			var name = UserHandler.ConnectedIds[Context.ConnectionId];
 			UserHandler.ConnectedIds.Remove(Context.ConnectionId);
-			await Clients.All.SendAsync("DisconnectMessage", Context.ConnectionId, UserHandler.ConnectedIds);
+			await Clients.All.SendAsync("ReceiveMessage", "System", $"Goodbye {name}!");
+			await Clients.All.SendAsync("DisconnectMessage", UserHandler.ConnectedIds);
 			await base.OnDisconnectedAsync(exception);
 		}
 		// public async Task AddToGroup(string groupName)

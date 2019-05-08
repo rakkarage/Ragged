@@ -15,19 +15,27 @@ connection.on("ReceiveMessage", (user, message) => {
 	scrollMessages();
 });
 
-connection.on("ConnectMessage", (user, users) => updateUsers(users));
+connection.on("ConnectMessage", (users) => {
+	updateUsers(users);
+});
 
-connection.on("DisconnectMessage", (user, users) => updateUsers(users));
+connection.on("DisconnectMessage", (users) => updateUsers(users));
+
+connection.on("SetName", (name) => updateName(name))
+
+function updateName(name) {
+	document.getElementById("nameInput").value = name;
+}
 
 function updateUsers(users) {
 	var parent = document.getElementById("usersList");
 	while (parent.firstChild)
 		parent.removeChild(parent.firstChild);
-	users.forEach(id => {
+	for (var id in users) {
 		var li = document.createElement("li");
 		li.textContent = id;
 		parent.appendChild(li);
-	});
+	}
 	scrollUsers();
 }
 

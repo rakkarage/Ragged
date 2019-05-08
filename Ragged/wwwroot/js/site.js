@@ -65,10 +65,15 @@ document.getElementById("topicInput").addEventListener("input", () => {
 	event.preventDefault();
 });
 
+document.getElementById("nameInput").addEventListener("input", () => {
+	var name = document.getElementById("nameInput").value;
+	connection.invoke("NameChanged", name)
+});
+
 document.getElementById("SendButton").addEventListener("click", (event) => {
-	var user = document.getElementById("nameInput").value;
+	var name = document.getElementById("nameInput").value;
 	var message = document.getElementById("messageInput").value;
-	connection.invoke("SendMessage", user, message).catch((err) => {
+	connection.invoke("SendMessage", name, message).catch((err) => {
 		return console.error(err.toString());
 	});
 	event.preventDefault();

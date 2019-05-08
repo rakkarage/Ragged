@@ -20,6 +20,11 @@ namespace Ragged.Hubs
 		{
 			await Clients.All.SendAsync("EditedTopic", message);
 		}
+		public async Task NameChanged(string name)
+		{
+			UserHandler.ConnectedIds[Context.ConnectionId] = name;
+			await Clients.All.SendAsync("ConnectMessage", UserHandler.ConnectedIds);
+		}
 		public override async Task OnConnectedAsync()
 		{
 			var name = _gename.Name();
